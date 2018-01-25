@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
 
     //@Override表示下面的方法继承于父类.
 
@@ -54,6 +54,7 @@ public class FirstActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        Log.d("FirstActivity",this.toString());
         setContentView(R.layout.first_layout);
         Button button1 = (Button) findViewById(R.id.button_1);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +91,10 @@ public class FirstActivity extends AppCompatActivity {
                 //返回数据给上一个活动.
                 Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
                 startActivityForResult(intent,1);
+
+//                //测试启动模式.
+//                Intent intent = new Intent(FirstActivity.this, FirstActivity.class);
+//                startActivity(intent);
             }
         });
     }
